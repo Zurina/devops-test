@@ -49,5 +49,6 @@ jobs:
         key: ${{ secrets.P_KEY }}
         port: 22
         script: |
-          sudo docker ps -q --filter "name=devops" | grep -q . && sudo docker rm -vf $(docker ps -aq) && sudo docker rmi -f $(docker images -aq)
-          sudo docker run -d -p 8084:8084 immassive/devops:latest
+          sudo docker ps -q --filter "name=devops" | grep -q . && sudo docker conatainer stop devops && sudo docker conatainer rm -fv devops
+          sudo sleep 15
+          sudo docker run -d -p 8084:8084 --name devops immassive/devops:latest
