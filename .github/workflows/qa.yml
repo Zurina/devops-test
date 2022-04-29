@@ -52,4 +52,4 @@ jobs:
         script: |
           sudo docker ps -q --filter "name=devops-qa" | grep -q . && sudo docker container stop devops-qa && sudo docker container rm -fv devops-qa
           sudo sleep 15
-          sudo docker run -d -p 8084:8084 --name devops immassive/devops-qa:latest
+          sudo docker run -d -p 8084:8084 --name devops immassive/devops-qa:${{github.run_number}}
