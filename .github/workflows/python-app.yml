@@ -42,3 +42,12 @@ jobs:
 
     - name: Push Docker Image to DockerHub
       run: "docker push immassive/devops:${{github.run_number}}"
+    
+    - name: SSH to server and redeploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: 107.21.71.63
+        username: ubuntu
+        key: ${{ secrets.P_KEY }}
+        port: 22
+        script: sudo docker run -p 8084 immassive/devops:latest
