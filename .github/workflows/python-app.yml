@@ -50,4 +50,4 @@ jobs:
         username: ubuntu
         key: ${{ secrets.P_KEY }}
         port: 22
-        script: sudo docker run -p 8084 immassive/devops:latest
+        script: sudo docker run -d -p 8084:8084 immassive/devops:latest
