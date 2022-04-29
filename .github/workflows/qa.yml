@@ -6,6 +6,7 @@ name: QA pipeline
 on:
   push:
     branches:    
+      - '*'
       - '!main'  
 
 permissions:
